@@ -103,7 +103,7 @@ void HandleInputBuffer(void* inUserData,
         } else {
             // assign fileUrl
             NSCharacterSet *set = [NSCharacterSet URLHostAllowedCharacterSet];
-            _fileUrl = [NSURL URLWithString:[url stringByAddingPercentEncodingWithAllowedCharacters:set]];
+            _fileUrl = [NSURL URLWithString:url]; // TODO: Remove fork when this is fixed on actual repo
             if (_fileUrl.isFileURL) {
                 _filePath = _fileUrl.path;
                 NSLog(@"[INFO] iosaudiorecorder:temp file path: %@", _filePath);
